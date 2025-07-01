@@ -1,18 +1,10 @@
-import Head from "next/head";
-import { Geist, Geist_Mono } from "next/font/google";
-import Header from "./Header";
-import "../styles/index.module.css"
 import { useState } from "react";
+import Header from "./Header";
+import Head from "next/head";
+import Menu from "./Menu";
+import "../styles/index.module.css"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -25,6 +17,7 @@ export default function Home() {
         <link rel="icon" href="https://img.icons8.com/win10/512/FFFFFF/tesla-logo.png" />
       </Head>
       <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
+      {!isMenuOpen && <Menu />}
     </>
   );
 }

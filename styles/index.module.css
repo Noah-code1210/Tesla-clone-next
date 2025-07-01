@@ -1,3 +1,9 @@
+ /* 
+ 
+ HEADER
+ 
+ */
+
 .header {
   display: flex;
   position: sticky;
@@ -48,4 +54,33 @@
 
 .hidden__link {
     visibility: hidden;
+}
+
+/* 
+
+MENU
+
+*/
+
+
+
+/* 
+
+MENU ITEM
+
+*/
+
+.menuItem {
+    border-bottom: 1px solid #d0d1d2;
+    text-align: left;
+    cursor: pointer;
+}
+
+.menuItem > h4 {
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding-left: 10px;
+    cursor: pointer;
 }
