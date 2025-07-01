@@ -3,6 +3,7 @@ import Header from "./Header";
 import Head from "next/head";
 import Menu from "./Menu";
 import "../styles/index.module.css"
+import HeaderBlock from "./HeaderBlock";
 
 
 
@@ -18,6 +19,7 @@ export default function Home() {
       </Head>
       <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
       {!isMenuOpen && <Menu />}
+      <HeaderBlock />
     </>
   );
 }
