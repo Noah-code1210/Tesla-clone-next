@@ -25,10 +25,10 @@ function Header({ isMenuOpen, setIsMenuOpen }) {
         <Link href={"/"}>Solar Panels</Link>
       </div>
       <div className={styles.header__right}>
-        <Link href={"/"} className={!isMenuOpen && styles.hidden__link}>
+        <Link href={"/"} className={isMenuOpen && styles.hidden__link}>
           Shop
         </Link>
-        <Link href={"/login"} className={!isMenuOpen && styles.hidden__link}>
+        <Link href={"/login"} className={isMenuOpen && styles.hidden__link}>
           Tesla Account
         </Link>
         <div
@@ -36,7 +36,7 @@ function Header({ isMenuOpen, setIsMenuOpen }) {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <div className={styles.header__menuLinks}>
-            {isMenuOpen ? <CiMenuBurger /> : <IoMdClose />}
+            {isMenuOpen ? <IoMdClose /> :  <CiMenuBurger /> }
           </div>
         </div>
       </div>

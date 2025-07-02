@@ -1,4 +1,3 @@
-
 /* 
  
  HEADER
@@ -48,6 +47,8 @@
 }
 
 .header__menuLinks {
+  font-size: 24px;
+  color: black;
   position: relative;
   z-index: 2;
   cursor: pointer;
@@ -110,80 +111,225 @@ HEADER BLOCK
 .headerBlock {
   background: url("https://tesla.com/ns_videos/model-3-social.jpg") no-repeat
     center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: grid;
-    place-items: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
 }
 
 .headerBlock__info {
-    display: flex;
-    flex-direction: column;
-    height: 360px;
+  display: flex;
+  flex-direction: column;
+  height: 360px;
 }
 
 .headerBlock__infoText {
-    text-align: center;
-    flex: 1;
+  text-align: center;
+  flex: 1;
 }
 
 .headerBlock__infoText > h1 {
-   color: #393c41;
-   font-size: 38px;
-   font-weight: 700;
+  color: #393c41;
+  font-size: 38px;
+  font-weight: 700;
 }
 
 .headerBlock__infoText > h4 {
-    font-size: 15px;
-    font-weight: 600;
-    color: #5c5e62;
+  font-size: 15px;
+  font-weight: 600;
+  color: #5c5e62;
 }
 
 .headerBlock__infoText > h4 > span {
-    padding-bottom: 4px;
-    padding-top: 15px;
-    border-bottom: 1px solid black;
-    color: #393c41;
-    cursor: pointer;
+  padding-bottom: 4px;
+  padding-top: 15px;
+  border-bottom: 1px solid black;
+  color: #393c41;
+  cursor: pointer;
 }
 
 .headerBlock__infoText > h4 > span:hover {
-    border-bottom-width: 2px;
-    color: black;
+  border-bottom-width: 2px;
+  color: black;
 }
 
 .headerBlock__actions {
-    margin-top: 330px;
-    display: flex;
-    gap: 20px;
+  margin-top: 330px;
+  display: flex;
+  gap: 20px;
 }
 
 .headerBlock__actions > button {
-    width: 260px;
-    font-weight: 700;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 50px;
-    padding: 12px 0;
-    outline: none;
-    cursor: pointer;
+  width: 260px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 0;
+  outline: none;
+  cursor: pointer;
 }
 
 .buttonPrimary {
-    background-color: #393c41;
-    color: white;
-    opacity: 0.9;
+  background-color: #393c41;
+  color: white;
+  opacity: 0.9;
 }
 
 .buttonSecondary {
-    background-color: white;
-    color: black;
-    opacity: 0.9;
+  background-color: white;
+  color: black;
+  opacity: 0.9;
+}
+
+/* 
+
+LOGIN
+
+*/
+
+.login {
+  padding: 25px;
+  padding-top: 15px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+}
+
+.loginHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+}
+
+.loginLogo > a > img {
+  object-fit: contain;
+  width: 90px;
+}
+
+.loginLanguage {
+  display: flex;
+  gap: 5px;
+  align-items: flex-end;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+.loginLanguage:hover {
+  background-color: #62626220;
+}
+
+.loginLanguage > span {
+  font-weight: 700;
+}
+
+.loginInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 330px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loginInfo > h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-left: -10px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm > label {
+  color: #5c5e62;
+  font-size: 15px;
+  font-weight: 700;
+  padding-left: 20px;
+  padding-bottom: 8px;
+}
+
+.loginForm > input {
+  margin-bottom: 30px;
+  background-color: #f4f4f4;
+  border: 1px solid #f4f4f4;
+  outline: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  color: #393c41;
+  font-weight: 600;
+}
+
+.loginForm > input:focus {
+  border: 1px solid #d6d6d6;
+  transition: all .2s;
+}
+
+.loginDivider {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.loginDivider > hr {
+  width: 40%;
+  height: 0;
+  opacity: 0.3;
+}
+
+.loginDivider > span {
+  font-weight: 700;
+  color: #5c5e62;
+}
+
+.primaryButton {
+  background-color: #3e6ae1;
+  border: none;
+  padding: 12px;
+  border-radius: 50px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 30px;
+  transition: all .4s;
+}
+.primaryButton:hover {
+  background-color: #3457b1;
+}
+
+.secondaryButton {
+  background-color: transparent;
+  border: 3px solid #171a20;
+  width: 100%;
+  padding: 10px 40px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  color: #171a20;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  outline: none;
+}
+
+.secondaryButton:hover {
+  background-color: #171a20;
+  color: white;
+  
 }
