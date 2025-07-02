@@ -1,4 +1,4 @@
-import React, { useState, useHistory } from "react";
+import React, { useState } from "react";
 import styles from "../styles/index.module.css";
 import Link from "next/link";
 import { TbWorld } from "react-icons/tb";
@@ -7,13 +7,13 @@ import SecondaryButton from "./SecondaryButton";
 import { auth } from "./firebase";
 import { useDispatch } from "react-redux";
 import { login } from "../features/userSlice";
-import { unstable_HistoryRouter } from "react-router-dom";
+import { useRouter } from "next/router";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const history = useHistory()
+  const history = useRouter()
 
   const signIn = (event) => {
     event.preventDefault();
