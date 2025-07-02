@@ -195,7 +195,8 @@ LOGIN
 
 */
 
-.login {
+.login,
+.signup {
   padding: 25px;
   padding-top: 15px;
   height: 100vh;
@@ -204,7 +205,8 @@ LOGIN
   gap: 70px;
 }
 
-.loginHeader {
+.loginHeader,
+.signupHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -212,12 +214,14 @@ LOGIN
   top: 0;
 }
 
-.loginLogo > a > img {
+.loginLogo > a > img,
+.signupLogo > a > img {
   object-fit: contain;
   width: 90px;
 }
 
-.loginLanguage {
+.loginLanguage,
+.signupLanguage  {
   display: flex;
   gap: 5px;
   align-items: flex-end;
@@ -227,15 +231,19 @@ LOGIN
   font-size: 15px;
   transition: all 0.2s ease;
 }
-.loginLanguage:hover {
+
+.loginLanguage:hover,
+.signupLanguage:hover {
   background-color: #62626220;
 }
 
-.loginLanguage > span {
+.loginLanguage > span,
+.signupLanguage > span {
   font-weight: 700;
 }
 
-.loginInfo {
+.loginInfo,
+.signupInfo {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -244,18 +252,25 @@ LOGIN
   margin-right: auto;
 }
 
-.loginInfo > h1 {
+.loginInfo > h1,
+.signupInfo > h1 {
   font-size: 40px;
   font-weight: 700;
   margin-left: -10px;
 }
 
-.loginForm {
+.signupInfo > h1 {
+  margin-left: -50px;
+}
+
+.loginForm,
+.signupForm {
   display: flex;
   flex-direction: column;
 }
 
-.loginForm > label {
+.loginForm > label, 
+.signupForm > label {
   color: #5c5e62;
   font-size: 15px;
   font-weight: 700;
@@ -263,7 +278,8 @@ LOGIN
   padding-bottom: 8px;
 }
 
-.loginForm > input {
+.loginForm > input, 
+.signupForm > input {
   margin-bottom: 30px;
   background-color: #f4f4f4;
   border: 1px solid #f4f4f4;
@@ -274,25 +290,29 @@ LOGIN
   font-weight: 600;
 }
 
-.loginForm > input:focus {
+.loginForm > input:focus,
+.signupForm > input:focus {
   border: 1px solid #d6d6d6;
   transition: all .2s;
 }
 
-.loginDivider {
+.loginDivider,
+.signupDivider {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
   align-items: center;
 }
 
-.loginDivider > hr {
+.loginDivider > hr,
+.signupDivider > hr {
   width: 40%;
   height: 0;
   opacity: 0.3;
 }
 
-.loginDivider > span {
+.loginDivider > span,
+.signupDivider > span {
   font-weight: 700;
   color: #5c5e62;
 }
@@ -331,5 +351,90 @@ LOGIN
 .secondaryButton:hover {
   background-color: #171a20;
   color: white;
-  
+}
+
+/* 
+
+TESLA
+
+*/
+
+.teslaHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 20px;
+  height: 8vh;
+  color: white;
+  background-color: #222;
+}
+
+.teslaLinks {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.teslaLinks > a,
+.teslaLinksExtra > a {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  z-index: 0;
+}
+.teslaLinksExtra > a {
+  padding-left: 150px;
+}
+
+.teslaLogo > a > img {
+  object-fit: contain;
+  width: 80px;
+  filter: invert(1);
+}
+
+.teslaMenu {
+  z-index: 2;
+}
+
+.tesla__menuLinks > a {
+  color: black;
+  font-size: 15px ;
+}
+
+.teslaAccountInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 140px;
+  padding-bottom: 30px;
+}
+
+.teslaAccountPerson {
+  font-size: x-large;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.teslaAccountInfo__right {
+  display: flex;
+  gap: 20px;
+}
+
+.teslaAccountInfo__right > a {
+  color: #393c41;
+  font-size: smaller;
+  transition: all 0.2s;
+  text-transform: capitalize;
+}
+.teslaAccountInfo__right > a:hover {
+  color: black;
+  font-weight: 700;
+}
+
+.teslaCar {
+  display: grid;
+  place-items: center;
+  gap: 30px;
+  padding-bottom: 40px;
 }

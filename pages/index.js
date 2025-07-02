@@ -7,6 +7,7 @@ import HeaderBlock from "./headerBlock";
 import { selectUser } from "../features/userSlice";
 import { useSelector } from "react-redux";
 import Link from "next/link";
+import Tesla from "./Tesla";
 
 export default function Home() {
   const user = useSelector(selectUser);
@@ -26,7 +27,12 @@ export default function Home() {
       <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       {isMenuOpen && <Menu />}
       <HeaderBlock />
-      {user ? <Link href={"/login"} /> : <Link href={"/teslaaccount"} />}
+      {user ? (
+        <Link href={"/login"} />
+      ) : (
+        <Tesla isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      )}
+      {isMenuOpen && <Menu />}
     </>
   );
 }

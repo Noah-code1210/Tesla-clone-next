@@ -1,19 +1,53 @@
+import React from "react";
 import { useState } from "react";
 import styles from "../styles/index.module.css";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { TbWorld } from "react-icons/tb";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
+import { login } from "../features/userSlice";
+import { auth } from "../pages/firebase";
 
 function signup() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [fName, setFName] = useState("");
-    const [lName, setLName] = useState("");
-    const dispatch = useDispatch();
-    const history = useRouter()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [fName, setFName] = useState("");
+  const [lName, setLName] = useState("");
+  const dispatch = useDispatch();
+  const history = useRouter();
+
+  const signUp = (event) => {
+    event.preventDefault();
+
+    if (!fName) {
+      return alert("Please enter a first name!");
+    }
+    if (!lName) {
+      return alert("Please enter a last name!");
+    }
+
+    auth
+    .createUserWithEmailAndPassword(email, password)
+    .then((userAuth) => {
+      userAuth.user
+        .updateProfile({
+          displayName: fName,
+        })
+        .then(() => {
+          dispatch(
+            login({
+              email: userAuth.user.email,
+              uid: userAuth.user.uid,
+              displayName: fName,
+            })
+          )
+          history.push('/teslaaccount')
+        })
+    })
+    .catch((error) => alert(error.message))
+}
 
   return (
     <>
@@ -32,7 +66,7 @@ function signup() {
           </div>
         </div>
         <div className={styles.signupInfo}>
-          <h1>Sign In</h1>
+          <h1>Create Account</h1>
           <form className={styles.signupForm}>
             <label htmlFor="fName">First Name</label>
             <input
@@ -62,15 +96,18 @@ function signup() {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
-            <PrimaryButton name="Create Account" type="submit"/>
+            <PrimaryButton
+              name="Create Account"
+              type="submit"
+              onClick={signUp}
+            />
           </form>
           <div className={styles.signupDivider}>
             <hr /> <span>OR</span> <hr />
           </div>
-            <SecondaryButton
-              name="Sign In"
-              type="submit"
-            />
+          <Link href={"/login"}>
+            <SecondaryButton name="Sign In" type="submit" />
+          </Link>
         </div>
       </div>
     </>
