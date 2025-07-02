@@ -1,17 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useHistory } from "react";
 import styles from "../styles/index.module.css";
 import Link from "next/link";
 import { TbWorld } from "react-icons/tb";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
+import { auth } from "./firebase";
+import { useDispatch } from "react-redux";
+import { login } from "../features/userSlice";
+import { unstable_HistoryRouter } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState('')
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const history = useHistory()
 
   const signIn = (event) => {
-    event.preventDefault()
-  }
+    event.preventDefault();
+
+    auth.signInWithEmailAndPassword(email, password).then((usserAuth) => {
+      dispatch(
+        login({
+          email: usserAuth.user.email,
+          uid: usserAuth.user.uid,
+          displayName: usserAuth.user.displayName,
+        })
+      )
+      history.push('/teslaaccount')
+    }).catch((error) => alert(error.message))
+  };
 
   return (
     <>
@@ -19,10 +36,10 @@ function Login() {
         <div className={styles.loginHeader}>
           <div className={styles.loginLogo}>
             <Link href={"/"}>
-            <img
-              src="https://assets.website-files.com/5e8fceb1c9af5c3915ec97a0/5ec2f037975ed372da9f6286_Tesla-Logo-PNG-HD.png"
-              alt=""
-            />
+              <img
+                src="https://assets.website-files.com/5e8fceb1c9af5c3915ec97a0/5ec2f037975ed372da9f6286_Tesla-Logo-PNG-HD.png"
+                alt=""
+              />
             </Link>
           </div>
           <div className={styles.loginLanguage}>
@@ -46,13 +63,17 @@ function Login() {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
-            <PrimaryButton name='Sign In' type='submit' onCLick={signIn} />
+            <PrimaryButton name="Sign In" type="submit" onCLick={signIn} />
           </form>
           <div className={styles.loginDivider}>
             <hr /> <span>OR</span> <hr />
           </div>
           <Link href={"/signup"}>
-          <SecondaryButton name='Create Account' type='submit' onCLick={signIn} />
+            <SecondaryButton
+              name="Create Account"
+              type="submit"
+              onCLick={signIn}
+            />
           </Link>
         </div>
       </div>
