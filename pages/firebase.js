@@ -1,21 +1,25 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import firebase from "firebase/app";
+import 'firebase/firestore';
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBHqbb5YNwDri5l5www81L226uAzE9qKFg",
+  authDomain: "tesla-clone-442e1.firebaseapp.com",
+  projectId: "tesla-clone-442e1",
+  storageBucket: "tesla-clone-442e1.firebasestorage.app",
+  messagingSenderId: "932881239975",
+  appId: "1:932881239975:web:f6754eb9d8cf027a58f082",
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+} else {
+  firebase.app(); // if already initialized, use that one
+}
 
 // Initialize Firebase services
+firebase.initializeApp(config)
+const db = firebase.firestore()
 const auth = getAuth(app);
-const db = getFirestore(app);
 
 export { auth, db };

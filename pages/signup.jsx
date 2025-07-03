@@ -7,8 +7,9 @@ import { TbWorld } from "react-icons/tb";
 import Link from "next/link";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { login } from "../features/userSlice";
-import { auth } from "../pages/firebase";
+import { auth } from "./firebase";
 
 function signup() {
   const [email, setEmail] = useState("");
@@ -28,26 +29,26 @@ function signup() {
       return alert("Please enter a last name!");
     }
 
-    auth
-    .createUserWithEmailAndPassword(email, password)
-    .then((userAuth) => {
-      userAuth.user
-        .updateProfile({
-          displayName: fName,
-        })
-        .then(() => {
-          dispatch(
-            login({
-              email: userAuth.user.email,
-              uid: userAuth.user.uid,
-              displayName: fName,
-            })
-          )
-          history.push('/teslaaccount')
-        })
-    })
-    .catch((error) => alert(error.message))
-}
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+      })
+      .then(() => {
+        dispatch(
+          login({
+            email: userAuth.user.email,
+            uid: userAuth.user.uid,
+            displayName: fName,
+          })
+        )
+        history.push('/teslaaccount')
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
+  };
 
   return (
     <>

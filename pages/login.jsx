@@ -8,6 +8,7 @@ import { auth } from "./firebase";
 import { useDispatch } from "react-redux";
 import { login } from "../features/userSlice";
 import { useRouter } from "next/router";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -18,7 +19,7 @@ function Login() {
   const signIn = (event) => {
     event.preventDefault();
 
-    auth.signInWithEmailAndPassword(email, password).then((usserAuth) => {
+    signInWithEmailAndPassword(auth, email, password).then((usserAuth) => {
       dispatch(
         login({
           email: usserAuth.user.email,
