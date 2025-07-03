@@ -27,11 +27,6 @@ export default function Home() {
       <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       {isMenuOpen && <Menu />}
       <HeaderBlock />
-      {user ? (
-        <Link href={"/login"} />
-      ) : (
-        <Tesla isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-      )}
       {isMenuOpen && <Menu />}
     </>
   );

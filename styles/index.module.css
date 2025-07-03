@@ -438,3 +438,53 @@ TESLA
   gap: 30px;
   padding-bottom: 40px;
 }
+
+/* 
+
+CAR
+
+*/
+
+.car {
+  display: grid;
+  place-items: center;
+  border-top: 1px solid #d0d1d2;
+}
+
+.carImg > img {
+  object-fit: contain;
+  width: 1000px;
+}
+
+.carModel {
+  font-size: xx-large;
+  font-weight: 700;
+  margin-top: -180px;
+  text-transform: capitalize;
+}
+
+.carActions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: -40px;
+}
+
+.carActions > button {
+  width: 200px;
+  margin-bottom: 30px;
+}
+
+.carInfo {
+  max-width: 350px;
+  text-align: center;
+  font-size: smaller;
+  line-height: 1.5;
+  font-weight: 700;
+  color: #393c41;
+}
+
+.carInfo > span {
+  color: #3e6be2;
+  cursor: pointer;
+}
