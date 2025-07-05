@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Header from "./Header";
 import Head from "next/head";
-import Menu from "./Menu";
 import "../styles/index.module.css";
-import HeaderBlock from "./HeaderBlock";
-import { login, logout, selectUser } from "../features/userSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { selectUser } from "../features/userSlice";
+import { useSelector } from "react-redux";
 import Link from "next/link";
+import HeaderBlock from "./HeaderBlock";
 import Tesla from "./Tesla";
 
 export default function Home() {
