@@ -4,33 +4,19 @@ import Link from "next/link";
 import { TbWorld } from "react-icons/tb";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
-import { auth } from "./firebase";
-import { useDispatch } from "react-redux";
-import { login } from "../features/userSlice";
-import { useRouter } from "next/router";
-import { signInWithEmailAndPassword } from "firebase/auth";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
-  const history = useRouter()
 
   const signIn = (event) => {
-    event.preventDefault();
-
-    signInWithEmailAndPassword(auth, email, password).then((usserAuth) => {
-      dispatch(
-        login({
-          email: usserAuth.user.email,
-          uid: usserAuth.user.uid,
-          displayName: usserAuth.user.displayName,
-        })
-      )
-      history.push('/teslaaccount')
-    }).catch((error) => alert(error.message))
+    if (!email) {
+      return alert("Please enter your email!")
+    }
+    if (!password) {
+      return alert("Please enter your password!")
+    }
   };
-
   return (
     <>
       <div className={styles.login}>
@@ -64,17 +50,15 @@ function Login() {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
-            <PrimaryButton name="Sign In" type="submit" onCLick={signIn} />
+            <Link href={"/Tesla"}>
+              <PrimaryButton name="Sign In" type="submit" onCLick={signIn} />
+            </Link>
           </form>
           <div className={styles.loginDivider}>
             <hr /> <span>OR</span> <hr />
           </div>
-          <Link href={"/signup"}>
-            <SecondaryButton
-              name="Create Account"
-              type="submit"
-              onCLick={signIn}
-            />
+          <Link href={"/Signup"}>
+            <SecondaryButton name="Create Account" type="submit" />
           </Link>
         </div>
       </div>

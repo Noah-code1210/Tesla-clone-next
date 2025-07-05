@@ -318,6 +318,7 @@ LOGIN
 }
 
 .primaryButton {
+  width: 330px;
   background-color: #3e6ae1;
   border: none;
   padding: 12px;

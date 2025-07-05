@@ -1,6 +1,5 @@
-import React from 'react'
 import styles from "../styles/index.module.css"
-import MenuItem from './menuItem'
+import MenuItem from './MenuItems'
 
 function Menu() {
   return (

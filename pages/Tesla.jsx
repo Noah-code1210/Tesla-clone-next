@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../styles/index.module.css";
 import Link from "next/link";
 import { CiMenuBurger } from "react-icons/ci";
@@ -9,7 +8,7 @@ import Car from "./Car";
 
 function Tesla({ isMenuOpen, setIsMenuOpen }) {
   const user = useSelector(selectUser);
-  const logoutOfApp = () => {};
+  
   return (
     <>
       <div className={styles.tesla}>
@@ -33,7 +32,7 @@ function Tesla({ isMenuOpen, setIsMenuOpen }) {
             <div className={styles.teslaLinksExtra}>
               <Link href={"/Tesla"}>Tesla Account</Link>
             </div>
-            <Link href={"login"} onClick={logoutOfApp}>
+            <Link href={"login"}>
               Log out
             </Link>
             <div className={styles.teslaMenu}>
@@ -45,13 +44,13 @@ function Tesla({ isMenuOpen, setIsMenuOpen }) {
         </div>
         <div className={styles.teslaAccountInfo}>
           <div className={styles.teslaAccountPerson}>
-            <h4>{user?.displayName + "'s"}</h4>
+            <h4>Your Tesla's</h4>
           </div>
           <div className={styles.teslaAccountInfo__right}>
             <Link href={"/"}>Home</Link>
             <Link href={"tesla"}>Account</Link>
             <Link href={""}>History</Link>
-            <Link href={"/"} onClick={logoutOfApp}>
+            <Link href={"/LogIn"}>
               Sign out
             </Link>
           </div>

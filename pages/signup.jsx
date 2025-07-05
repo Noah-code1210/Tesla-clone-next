@@ -1,55 +1,26 @@
-import React from "react";
 import { useState } from "react";
 import styles from "../styles/index.module.css";
-import { useDispatch } from "react-redux";
-import { useRouter } from "next/router";
 import { TbWorld } from "react-icons/tb";
 import Link from "next/link";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { login } from "../features/userSlice";
-import { auth } from "./firebase";
+import { useNavigate } from "react-router-dom";
 
 function signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fName, setFName] = useState("");
   const [lName, setLName] = useState("");
-  const dispatch = useDispatch();
-  const history = useRouter();
 
   const signUp = (event) => {
-    event.preventDefault();
-
     if (!fName) {
       return alert("Please enter a first name!");
     }
     if (!lName) {
       return alert("Please enter a last name!");
     }
-
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-      })
-      .then(() => {
-        dispatch(
-          login({
-            email: userAuth.user.email,
-            uid: userAuth.user.uid,
-            displayName: fName,
-          })
-        )
-        history.push('/teslaaccount')
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-      });
+    <Link href={"Tesla"} />;
   };
-
   return (
     <>
       <div className={styles.signup}>
@@ -97,16 +68,14 @@ function signup() {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
-            <PrimaryButton
-              name="Create Account"
-              type="submit"
-              onClick={signUp}
-            />
           </form>
+          <Link href={"/Tesla"}>
+            <PrimaryButton name="Create Account" type="submit" />
+          </Link>
           <div className={styles.signupDivider}>
             <hr /> <span>OR</span> <hr />
           </div>
-          <Link href={"/login"}>
+          <Link href={"/LogIn"}>
             <SecondaryButton name="Sign In" type="submit" />
           </Link>
         </div>

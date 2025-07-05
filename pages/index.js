@@ -1,35 +1,17 @@
 import { useEffect, useState } from "react";
-import Header from "./header";
+import Header from "./Header";
 import Head from "next/head";
-import Menu from "./menu";
+import Menu from "./Menu";
 import "../styles/index.module.css";
-import HeaderBlock from "./headerBlock";
+import HeaderBlock from "./HeaderBlock";
 import { login, logout, selectUser } from "../features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 import Tesla from "./Tesla";
-import { auth } from '../pages/firebase'
 
 export default function Home() {
   const user = useSelector(selectUser);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    auth.onAuthStateChanged((userAuth) => {
-      if (userAuth) {
-        dispatch(
-          login({
-            email: userAuth.email,
-            uid: userAuth.uid,
-            displayName: userAuth.displayName,
-          })
-        )
-      } else {
-        dispatch(logout())
-      }
-    })
-  }, [dispatch])
 
   return (
     <>

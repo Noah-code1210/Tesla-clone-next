@@ -1,8 +1,8 @@
 import Link from "next/link";
-import React from "react";
 import styles from "../styles/index.module.css";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
+// Debugging
 
 function Header({ isMenuOpen, setIsMenuOpen }) {
   return (
@@ -28,7 +28,7 @@ function Header({ isMenuOpen, setIsMenuOpen }) {
         <Link href={"/"} className={isMenuOpen && styles.hidden__link}>
           Shop
         </Link>
-        <Link href={"/login"} className={isMenuOpen && styles.hidden__link}>
+        <Link href={"/LogIn"} className={isMenuOpen && styles.hidden__link}>
           Tesla Account
         </Link>
         <div

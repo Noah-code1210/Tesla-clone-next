@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../styles/index.module.css";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
