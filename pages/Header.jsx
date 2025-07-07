@@ -28,7 +28,7 @@ function Header({ isMenuOpen, setIsMenuOpen }) {
         <Link href={"/"} className={isMenuOpen && styles.hidden__link}>
           Shop
         </Link>
-        <Link href={"/LogIn"} className={isMenuOpen && styles.hidden__link}>
+        <Link href={"/login"} className={isMenuOpen && styles.hidden__link}>
           Tesla Account
         </Link>
         <div

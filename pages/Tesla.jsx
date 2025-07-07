@@ -32,7 +32,7 @@ function Tesla({ isMenuOpen, setIsMenuOpen }) {
             <div className={styles.teslaLinksExtra}>
               <Link href={"/Tesla"}>Tesla Account</Link>
             </div>
-            <Link href={"login"}>
+            <Link href={"/login"}>
               Log out
             </Link>
             <div className={styles.teslaMenu}>
@@ -50,7 +50,7 @@ function Tesla({ isMenuOpen, setIsMenuOpen }) {
             <Link href={"/"}>Home</Link>
             <Link href={"tesla"}>Account</Link>
             <Link href={""}>History</Link>
-            <Link href={"/LogIn"}>
+            <Link href={"/login"}>
               Sign out
             </Link>
           </div>
