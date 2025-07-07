@@ -57,7 +57,7 @@ function Login() {
           <div className={styles.loginDivider}>
             <hr /> <span>OR</span> <hr />
           </div>
-          <Link href={"/Signup"}>
+          <Link href={"/signup"}>
             <SecondaryButton name="Create Account" type="submit" />
           </Link>
         </div>
