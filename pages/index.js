@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 import HeaderBlock from "./HeaderBlock";
 import Tesla from "./Tesla";
+import Menu from "./Menu";
 
 export default function Home() {
   const user = useSelector(selectUser);
